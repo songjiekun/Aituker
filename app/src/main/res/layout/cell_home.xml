@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    card_view:cardElevation="2dp"
+    card_view:cardCornerRadius="5dp"
+    card_view:cardPreventCornerOverlap="false" >
+    <!-- cardPreventCornerOverlap -->
+
+    <RelativeLayout
+        android:id="@+id/topicCell"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.greenumbrellastudio.android.aituker.view.TopicPreviewImageView
+            android:id="@+id/topicPreviewImageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/pict"/>
+
+        <!-- 标题 -->
+        <TextView
+            android:id="@+id/topicTitleTextView"
+            android:layout_below="@id/topicPreviewImageView"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:textSize="18dip"
+            android:background="#C8E1F2"
+            android:textColor="@android:color/black"
+            android:gravity="center"/>
+
+        <!-- 日期 -->
+        <TextView
+            android:id="@+id/topicDateTextView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:textSize="11dp"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:background="#BB51D06C"/>
+
+        <!-- 作者头像 -->
+        <ImageView
+            android:id="@+id/topicProfileImageView"
+            android:layout_alignTop="@id/topicTitleTextView"
+            android:layout_marginTop="-25dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/profile"/>
+
+
+
+    </RelativeLayout>
+
+
+
+</android.support.v7.widget.CardView>
