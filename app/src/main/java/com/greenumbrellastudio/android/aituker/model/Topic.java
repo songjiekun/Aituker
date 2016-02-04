@@ -92,6 +92,8 @@ public class Topic implements Parcelable{
         dest.writeString(mPreviewUrl);
         dest.writeString(mProfileUrl);
         dest.writeString(mPublishedDate);
+
+        if (mTopicID!=null)
         dest.writeInt(mTopicID);
 
     }

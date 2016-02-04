@@ -1,6 +1,7 @@
 package com.greenumbrellastudio.android.aituker.home;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -17,6 +18,7 @@ import com.greenumbrellastudio.android.aituker.listener.OnloadMoreListener;
 import com.greenumbrellastudio.android.aituker.model.Topic;
 import com.greenumbrellastudio.android.aituker.model.TopicListResult;
 import com.greenumbrellastudio.android.aituker.network.LeanCloudEndpointInterface;
+import com.greenumbrellastudio.android.aituker.topic.TopicActivity;
 import com.greenumbrellastudio.android.aituker.view.LoadMoreRecyclerView;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
@@ -131,6 +133,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         mHomeTopicAdapter.setOnClickSliderListener(this);
         mHomeTopicAdapter.setOnClickItemListener(this);//设置adapter的listener 必须要放在setAdapter之前
         mRecyclerView.setAdapter(mHomeTopicAdapter);
+
 
         mRecyclerView.setOnLoadMoreListener(new OnloadMoreListener() {
             @Override
@@ -270,7 +273,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             //获取位置信息
             int position = mRecyclerView.getChildAdapterPosition(view);
 
-            Toast.makeText(getContext(), String.valueOf(position)+"item", Toast.LENGTH_SHORT).show();
+            //获取相关数据
+            Topic topic = mTopics.get(position);
+
+            //调用新intent
+            Intent topicIntent = new Intent(getContext(), TopicActivity.class);
+            startActivity(topicIntent);
 
 
         }

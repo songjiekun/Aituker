@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.greenumbrellastudio.android.aituker.R;
@@ -380,7 +379,6 @@ public class HomeTopicAdapter extends LoadMoreRecyclerAdapter implements ViewPag
         public TextView topicDateTextView;
         public TopicPreviewImageView topicPreviewImageView;
         public ImageView topicProfileImageView;
-        public RelativeLayout topicCell;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
@@ -389,7 +387,6 @@ public class HomeTopicAdapter extends LoadMoreRecyclerAdapter implements ViewPag
             topicDateTextView = (TextView)itemView.findViewById(R.id.topicDateTextView);
             topicPreviewImageView = (TopicPreviewImageView)itemView.findViewById(R.id.topicPreviewImageView);
             topicProfileImageView = (ImageView)itemView.findViewById(R.id.topicProfileImageView);
-            topicCell =(RelativeLayout)itemView.findViewById(R.id.topicCell);
 
             //设置click listener接口
             itemView.setOnClickListener(mOnClickItemListener);
