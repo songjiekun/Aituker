@@ -12,6 +12,7 @@
         android:src="@drawable/pict"/>
 
     <com.greenumbrellastudio.android.aituker.view.BounceScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:overScrollMode="always">
@@ -37,7 +38,7 @@
             <TextView
                 android:layout_below="@id/titleTextView"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="600dp"
                 android:layout_margin="20dp"
                 android:textSize="17dip"
                 android:background="#C8E1F2"

@@ -5,13 +5,20 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 
-import com.greenumbrellastudio.android.aituker.listener.OnloadMoreListener;
-
 
 /**
  * Created by songjiekun on 16/2/1.
  */
 public class LoadMoreRecyclerView extends RecyclerView {
+
+    /**
+     * 定义监听loadmore接口
+     */
+    public interface OnloadMoreListener {
+
+        void loadMore();
+
+    }
 
     /**
      * OnloadMoreListener接口

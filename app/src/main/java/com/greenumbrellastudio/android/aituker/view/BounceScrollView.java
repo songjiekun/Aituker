@@ -11,17 +11,17 @@ import android.widget.ScrollView;
 public class BounceScrollView extends ScrollView {
 
     //拖动到边缘后调用的接口
-    interface ScrollToEdage {
+    public interface OnScrollToEdageListener {
 
         void onScrollToEdage();
 
     }
 
-    private ScrollToEdage mScrollToEdage;
+    private OnScrollToEdageListener mOnScrollToEdageListener;
 
-    public void setScrollToEdage(ScrollToEdage scrollToEdage){
+    public void setOnScrollToEdageListener(OnScrollToEdageListener onScrollToEdageListener){
 
-        mScrollToEdage = scrollToEdage;
+        mOnScrollToEdageListener = onScrollToEdageListener;
 
     }
 
@@ -89,23 +89,25 @@ public class BounceScrollView extends ScrollView {
     @Override
     protected boolean overScrollBy(int deltaX, int deltaY, int scrollX, int scrollY, int scrollRangeX, int scrollRangeY, int maxOverScrollX, int maxOverScrollY, boolean isTouchEvent)
     {
-        mOverScrollX = scrollX+deltaX;
-        mOverScrollY = scrollY+deltaY;
+
+        //拖动距离除以2 是的拖动有阻碍感
+        mOverScrollX = scrollX+deltaX/2;
+        mOverScrollY = scrollY+deltaY/2;
 
         //当拖动到3分之2的距离时 并且手指移开了 就调用代理
         if (mOverScrollY<=-mMaxOverScrollDistance/3*2 && !isTouchEvent){
 
-            if (mScrollToEdage == null) {
+            if (mOnScrollToEdageListener != null) {
 
                 //调用代理
-                mScrollToEdage.onScrollToEdage();
+                mOnScrollToEdageListener.onScrollToEdage();
 
             }
 
         }
 
         //产生overscroll效果
-        return super.overScrollBy(deltaX, deltaY, scrollX, scrollY, scrollRangeX, scrollRangeY, maxOverScrollX, mMaxOverScrollDistance, isTouchEvent);
+        return super.overScrollBy(deltaX/2, deltaY/2, scrollX, scrollY, scrollRangeX, scrollRangeY, maxOverScrollX, mMaxOverScrollDistance, isTouchEvent);
     }
 
 

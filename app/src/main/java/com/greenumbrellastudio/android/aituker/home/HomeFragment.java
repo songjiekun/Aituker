@@ -14,12 +14,12 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.greenumbrellastudio.android.aituker.R;
-import com.greenumbrellastudio.android.aituker.listener.OnloadMoreListener;
 import com.greenumbrellastudio.android.aituker.model.Topic;
 import com.greenumbrellastudio.android.aituker.model.TopicListResult;
 import com.greenumbrellastudio.android.aituker.network.LeanCloudEndpointInterface;
 import com.greenumbrellastudio.android.aituker.topic.TopicActivity;
 import com.greenumbrellastudio.android.aituker.view.LoadMoreRecyclerView;
+import com.greenumbrellastudio.android.aituker.view.LoadMoreRecyclerView.OnloadMoreListener;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 
