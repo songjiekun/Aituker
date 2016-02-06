@@ -21,6 +21,16 @@ public class TopicActivity extends FragmentActivity implements BounceScrollView.
     private BounceScrollView mScrollView;
 
     @Override
+    public void finish(){
+
+        super.finish();
+
+        //activity滑出到右侧动画
+        overridePendingTransition(R.anim.hold,R.anim.exit_to_right );
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topic);

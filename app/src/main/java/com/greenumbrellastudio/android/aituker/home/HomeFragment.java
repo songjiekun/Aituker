@@ -279,6 +279,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             //调用新intent
             Intent topicIntent = new Intent(getContext(), TopicActivity.class);
             startActivity(topicIntent);
+            //从右侧划入activity动画
+            getActivity().overridePendingTransition(R.anim.enter_from_right,R.anim.hold);
 
 
         }
