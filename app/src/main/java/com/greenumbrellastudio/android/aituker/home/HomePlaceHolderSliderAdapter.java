@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 
 /**
  * Created by songjiekun on 16/1/30.
+ * 用于控制slider下方的白点
  */
 public class HomePlaceHolderSliderAdapter extends PagerAdapter {
 

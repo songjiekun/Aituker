@@ -5,11 +5,12 @@
     android:layout_height="match_parent"
     tools:context="com.greenumbrellastudio.android.aituker.topic.TopicActivity">
 
-    <com.greenumbrellastudio.android.aituker.view.TopicPreviewImageView
-        android:id="@+id/featureImageView"
+    <!-- 图片集合 -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/galleryRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/pict"/>
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"/>
 
     <com.greenumbrellastudio.android.aituker.view.BounceScrollView
         android:id="@+id/scrollView"
