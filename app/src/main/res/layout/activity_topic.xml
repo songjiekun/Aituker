@@ -12,6 +12,22 @@
         android:layout_height="match_parent"
         android:scrollbars="vertical"/>
 
+    <!-- scroll返回原位按钮 -->
+    <View
+        android:id="@+id/topicScrollBackView"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:background="#ccC8E1F2"/>
+    <!-- 向上图标 -->
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignTop="@+id/topicScrollBackView"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/up"/>
+
     <com.greenumbrellastudio.android.aituker.view.BounceScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -53,5 +69,17 @@
         </RelativeLayout>
 
     </com.greenumbrellastudio.android.aituker.view.BounceScrollView>
+
+    <!-- 回退按钮 -->
+    <ImageView
+        android:id="@+id/topicBackImage"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/back_button"/>
 
 </RelativeLayout>

@@ -48,7 +48,7 @@ public class TopicGalleryAdapter extends RecyclerView.Adapter {
             itemHolder.galleryImageView.setImageResource(R.drawable.pict);
 
         }
-        else if (position==11 || position==15){
+        else if (position==11 || position==12 || position==13 || position==16){
 
             itemHolder.galleryImageView.setImageResource(R.drawable.profile);
 
