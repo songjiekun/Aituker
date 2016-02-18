@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CC000000"
+    tools:context="com.greenumbrellastudio.android.aituker.imagebrowser.ImageBrowserActivity">
+
+    <!-- 图片浏览器 -->
+    <com.greenumbrellastudio.android.aituker.view.gallery.ExtendedViewPager
+        android:id="@+id/imageBrowserViewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</RelativeLayout>

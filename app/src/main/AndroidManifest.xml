@@ -17,7 +17,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".topic.TopicActivity"></activity>
+        <activity android:name=".topic.TopicActivity" />
+        <activity
+            android:name=".imagebrowser.ImageBrowserActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
     </application>
 
 </manifest>

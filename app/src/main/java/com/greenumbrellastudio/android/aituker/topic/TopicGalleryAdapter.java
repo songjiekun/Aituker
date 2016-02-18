@@ -21,6 +21,17 @@ public class TopicGalleryAdapter extends RecyclerView.Adapter {
     private Context mContext;
 
     /**
+     * 点击item接口
+     */
+    private View.OnClickListener mOnClickItemListener;
+
+    public void setOnClickItemListener(View.OnClickListener onClickItemListener){
+
+        mOnClickItemListener = onClickItemListener;
+
+    }
+
+    /**
      * 构造函数
      */
     public TopicGalleryAdapter(Context context){
@@ -43,6 +54,10 @@ public class TopicGalleryAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
         final GalleryViewHolder itemHolder = (GalleryViewHolder)holder;
+
+        //设置图片的位置信息
+        itemHolder.itemView.setTag(position);
+
         if (position==2 || position==4){
 
             itemHolder.galleryImageView.setImageResource(R.drawable.pict);
@@ -78,6 +93,9 @@ public class TopicGalleryAdapter extends RecyclerView.Adapter {
             super(itemView);
 
             galleryImageView =(ImageView)itemView.findViewById(R.id.galleryImageView);
+
+            //设置click listener接口
+            itemView.setOnClickListener(mOnClickItemListener);
 
 
         }

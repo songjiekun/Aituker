@@ -2,6 +2,7 @@ package com.greenumbrellastudio.android.aituker.topic;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
@@ -19,9 +20,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.greenumbrellastudio.android.aituker.R;
+import com.greenumbrellastudio.android.aituker.imagebrowser.ImageBrowserActivity;
 import com.greenumbrellastudio.android.aituker.view.BounceScrollView;
 
-public class TopicActivity extends FragmentActivity implements BounceScrollView.OnScrollToEdageListener,BounceScrollView.OnScrollChangedListener{
+public class TopicActivity extends FragmentActivity implements BounceScrollView.OnScrollToEdageListener,BounceScrollView.OnScrollChangedListener, View.OnClickListener{
 
     private BounceScrollView mScrollView;
     private RecyclerView mGalleryRecyclerView;
@@ -51,7 +53,7 @@ public class TopicActivity extends FragmentActivity implements BounceScrollView.
     }
 
     /**
-     * 配置tab
+     * 配置views
      */
     private void setupViews(){
 
@@ -128,6 +130,7 @@ public class TopicActivity extends FragmentActivity implements BounceScrollView.
 
         //获取gallery recycleview
         mGalleryRecyclerView = (RecyclerView)findViewById(R.id.galleryRecyclerView);
+        mGalleryRecyclerView.setHasFixedSize(true);
 
         //设置layoutmanager
         mGalleryLayoutManager=new GridLayoutManager(this,2);
@@ -153,10 +156,11 @@ public class TopicActivity extends FragmentActivity implements BounceScrollView.
         });
 
         //设置gallery间距
-        mGalleryRecyclerView.addItemDecoration(new SpacesItemDecoration(5));
+        mGalleryRecyclerView.addItemDecoration(new SpacesItemDecoration(2));
 
         //设置adapter
         mTopicGalleryAdapter = new TopicGalleryAdapter(this);
+        mTopicGalleryAdapter.setOnClickItemListener(this);
         mGalleryRecyclerView.setAdapter(mTopicGalleryAdapter);
 
     }
@@ -263,6 +267,27 @@ public class TopicActivity extends FragmentActivity implements BounceScrollView.
     }
 
     /**
+     * 点击gallery图片
+     * @param v
+     */
+    @Override
+    public void onClick(View v) {
+
+        //获取位置信息
+        int position = (int)v.getTag();
+
+        //创建新intent
+        Intent imageBrowserIntent = new Intent(this, ImageBrowserActivity.class);
+
+        //传递的数据
+        imageBrowserIntent.putExtra("Page_No",position);
+
+        //调用新intent
+        startActivity(imageBrowserIntent);
+
+    }
+
+    /**
      * recycleView的间距
      */
     public class SpacesItemDecoration extends RecyclerView.ItemDecoration {
@@ -291,12 +316,12 @@ public class TopicActivity extends FragmentActivity implements BounceScrollView.
                 if (position%2==0){
 
                     outRect.left = space/2;
-                    outRect.right = space;
+                    outRect.right = 0;
 
                 }
                 else {
 
-                    outRect.left = space;
+                    outRect.left = 0;
                     outRect.right = space/2;
 
                 }

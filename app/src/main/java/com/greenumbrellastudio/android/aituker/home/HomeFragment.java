@@ -122,6 +122,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         /** 配置recyclerview**/
         mRecyclerView = (LoadMoreRecyclerView)rootView.findViewById(R.id.mainRecyclerView);
         mRecyclerView.setItemViewCacheSize(2);
+        mRecyclerView.setHasFixedSize(true);
 
         //设置layoutmanager
         mRecyclerLayoutManager=new LinearLayoutManager(getActivity());
@@ -270,8 +271,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
             CardView view = (CardView)v;
 
-            //获取位置信息
-            int position = mRecyclerView.getChildAdapterPosition(view);
+            //获取位置信息(头部有slider 所以需要减去1）
+            int position = mRecyclerView.getChildAdapterPosition(view)-1;
 
             //获取相关数据
             Topic topic = mTopics.get(position);
