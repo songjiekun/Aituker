@@ -31,40 +31,43 @@
     <com.greenumbrellastudio.android.aituker.view.BounceScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:overScrollMode="always">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
+
 
             <TextView
-                android:id="@+id/titleTextView"
+                android:id="@+id/topicDescriptionTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:textSize="21dip"
-                android:background="@android:color/transparent"
-                android:textColor="@android:color/black"
-                android:gravity="center"
-                android:text="测试标题"/>
-
-            <TextView
-                android:layout_below="@id/titleTextView"
-                android:layout_width="match_parent"
-                android:layout_height="600dp"
-                android:layout_margin="0dp"
-                android:padding="20dp"
+                android:layout_marginTop="150dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:paddingTop="45dp"
+                android:paddingBottom="20dp"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
                 android:textSize="17dip"
-                android:background="#C8E1F2"
+                android:background="@android:color/white"
                 android:textColor="@android:color/black"
                 android:gravity="left"
-                android:text="测试内容测试内容测试内容测试内容测试内容测试内容
-                测试内容测试内容测试内容测试内容测试内容测试内容
+                android:text="测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容
                 测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容"/>
+
+            <!-- 作者头像 -->
+            <ImageView
+                android:id="@+id/topicProfileImageView"
+                android:layout_alignTop="@id/topicDescriptionTextView"
+                android:layout_marginTop="-25dp"
+                android:layout_centerHorizontal="true"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/profile"/>
 
         </RelativeLayout>
 

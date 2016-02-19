@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.greenumbrellastudio.android.aituker.R;
 import com.greenumbrellastudio.android.aituker.imagebrowser.ImageBrowserActivity;
@@ -31,6 +32,7 @@ public class TopicActivity extends FragmentActivity implements BounceScrollView.
     private GridLayoutManager mGalleryLayoutManager;
     private ImageView mBackImageView;
     private View mTopicScrollBackView;
+    private View mTopicDescriptionTextView;
 
     @Override
     public void finish(){
@@ -56,6 +58,31 @@ public class TopicActivity extends FragmentActivity implements BounceScrollView.
      * 配置views
      */
     private void setupViews(){
+
+        //获取topic描述
+        mTopicDescriptionTextView=(TextView)findViewById(R.id.topicDescriptionTextView);
+
+        //设置描述textview的高度
+        //获取textview的 layout参数
+        RelativeLayout.LayoutParams params=(RelativeLayout.LayoutParams) mTopicDescriptionTextView.getLayoutParams();
+
+        //获取topmargin
+        int marginTop = params.topMargin;
+
+        //获取整个屏幕的高度
+        WindowManager wm = (WindowManager)this.getSystemService(Context.WINDOW_SERVICE);
+        Display display = wm.getDefaultDisplay();
+        DisplayMetrics metrics = new DisplayMetrics();
+        display.getMetrics(metrics);
+        final int height = metrics.heightPixels;
+
+        //textview的高度计算
+        params.height= height-marginTop;
+
+        //设置描述textview的高度
+        mTopicDescriptionTextView.setLayoutParams(params);
+
+
 
         //获取scroll back按钮
         mTopicScrollBackView=(View)findViewById(R.id.topicScrollBackView);

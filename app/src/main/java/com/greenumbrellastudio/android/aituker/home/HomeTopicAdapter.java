@@ -213,7 +213,8 @@ public class HomeTopicAdapter extends LoadMoreRecyclerAdapter implements ViewPag
             Picasso.with(mContext).setIndicatorsEnabled(true);
             Picasso.with(mContext).setLoggingEnabled(true);
             //preview图片设置
-            Picasso.with(mContext).load(topic.getmPreviewUrl()).resize(metrics.widthPixels-20, 0)
+            //resize(metrics.widthPixels, 0)
+            Picasso.with(mContext).load(topic.getmPreviewUrl()).fit().centerCrop()
                     .placeholder(R.drawable.pict).error(R.drawable.pict).into(itemHolder.topicPreviewImageView);
 
             /*
@@ -421,7 +422,7 @@ public class HomeTopicAdapter extends LoadMoreRecyclerAdapter implements ViewPag
             DisplayMetrics metrics = new DisplayMetrics();
             display.getMetrics(metrics);
 
-            sliderViewpager.getLayoutParams().height=metrics.widthPixels/4*3;
+            sliderViewpager.getLayoutParams().height=metrics.widthPixels/2;
 
         }
     }
